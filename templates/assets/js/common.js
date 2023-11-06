@@ -41,8 +41,10 @@ const commonContext = {
 					$icon_dark.addClass("active");
 				}
 				$html.attr("data-mode", theme);
+				$html.attr("data-color-scheme", theme);
 				localStorage.setItem("data-mode", theme);
 				commonContext.initCommentTheme();
+				commonContext.initSearchTheme();
 			} catch (err) {
 				console.log(err);
 			}
@@ -106,6 +108,11 @@ const commonContext = {
 			const shadowDom = comments[i].shadowRoot.getElementById("halo-comment");
 			$(shadowDom)[`${curMode === "light" ? "remove" : "add"}Class`]("dark");
 		}
+	},
+	/* 初始化搜索组件主题 */
+	initSearchTheme() {
+		const curMode = document.querySelector("html").getAttribute("data-mode");
+		document.querySelector("html").setAttribute("data-color-scheme", curMode);
 	},
 	/* 初始化代码区域，高亮 + 行号 + 折叠 + 复制 */
 	initCode(isRefresh) {
