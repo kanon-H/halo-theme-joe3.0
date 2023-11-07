@@ -44,6 +44,7 @@ const commonContext = {
 				$html.attr("data-color-scheme", theme);
 				localStorage.setItem("data-mode", theme);
 				commonContext.initCommentTheme();
+				//测试一下 abcaaa  
 				commonContext.initSearchTheme();
 			} catch (err) {
 				console.log(err);
